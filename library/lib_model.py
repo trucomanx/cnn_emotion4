@@ -81,7 +81,7 @@ def evaluate_model_from_file(modelo, imgfilepath,target_size=(224,224)):
     image=image/255.0;
     res=modelo.predict(image.reshape(-1,target_size[0],target_size[1],3),verbose=0);
     
-    return int(res[0][0]>res[0][1]);
+    return np.argmax(res);
 
 def evaluate_model_from_pil(modelo, image,target_size=(224,224)):
     '''
@@ -100,7 +100,7 @@ def evaluate_model_from_pil(modelo, image,target_size=(224,224)):
     image=image/255.0;
     res=modelo.predict(image.reshape(-1,target_size[0],target_size[1],3),verbose=0);
     
-    return int(res[0][0]>res[0][1]);
+    return np.argmax(res);
 
 def save_model_history(hist, fpath,show=True, labels=['accuracy','loss']):
     ''''This function saves the history returned by model.fit to a tab-
