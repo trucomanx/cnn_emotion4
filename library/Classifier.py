@@ -33,3 +33,5 @@ class Emotion4Classifier:
     def is_pil_patient(self,img_pil):
         return mpp.evaluate_model_from_pil(self.modelo,img_pil, target_size=self.target_size);
     
+    def target_labels(self):
+        return ['Negative','Neutro','Pain','Positive'];
