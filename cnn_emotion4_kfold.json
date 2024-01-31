@@ -1,0 +1,11 @@
+{
+    "dataset_base_dir" : "/mnt/boveda/DATASETs/PATIENT-IMAGES/patient_people/train",
+    "dataset_labels_file" : "emotion4.work1.csv",
+    "dataset_name" : "dataset_patient_people",
+    "model_type" : "efficientnet_b3",
+    "kfold" : 5,
+    "batch_size" : 32,
+    "epochs" : 50,
+    "enable_stratified": true,
+    "output_base_dir" : "/mnt/boveda/DOCTORADO2/cnn_emotion4/cross-validation"
+}
