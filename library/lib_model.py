@@ -9,7 +9,7 @@ from tensorflow.keras.preprocessing.image import load_img
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
-import keras.backend as K
+import tensorflow.keras.backend as K
 
 def create_model(file_of_weight='',model_type='mobilenet_v2'):
     '''
@@ -210,7 +210,7 @@ def save_model_stat_kfold(VALIDATION_ACCURACY,VALIDATION_LOSS, fpath):
     return np.mean(VALIDATION_ACCURACY);
 
 
-from keras.utils.layer_utils import count_params
+from tensorflow.python.keras.utils.layer_utils import count_params
 def save_model_parameters(model, fpath):
     '''
     Salva en un archivo la estadistica de la cantidoda de parametros de un modelo

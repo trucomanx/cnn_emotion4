@@ -1,0 +1,9 @@
+jupyterlab
+pyarrow
+pandas
+ipynb-py-convert
+scikit-learn
+matplotlib
+opencv-python
+tensorflow
+tensorflow_hub
