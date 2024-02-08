@@ -4,6 +4,6 @@ pandas
 ipynb-py-convert
 scikit-learn
 matplotlib
-opencv-python
+opencv-python-headless
 tensorflow
 tensorflow_hub
