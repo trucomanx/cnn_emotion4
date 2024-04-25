@@ -24,10 +24,12 @@ image_ext=".eps";
 
 OutDir='/media/fernando/B0EA304AEA300EDA/Dados/Fernando/OUTPUTS/DOCTORADO2/cnn_emotion4_1'
 
-InTrD='/media/fernando/B0EA304AEA300EDA/Dados/Fernando/DATASET/TESE/PATIENT-RECOGNITION/PATIENT-IMAGES/perwi/dataset/train'
-InTrF='labels-emotion4-v1.csv'
-DName='perwi'
-
+#InTrD='/media/fernando/B0EA304AEA300EDA/Dados/Fernando/DATASET/TESE/PATIENT-RECOGNITION/PATIENT-IMAGES/perwi/dataset/train'
+#InTrF='labels-emotion4-v1.csv'
+#DName='perwi'
+InTrD='/media/fernando/B0EA304AEA300EDA/Dados/Fernando/DATASET/TESE/BER/BER2024/BER2024-BODY'
+InTrF='train.csv'
+DName='ber2024-body'
 ################################################################################
 
 ipynb-py-convert kfold_validation.ipynb kfold_validation.py
