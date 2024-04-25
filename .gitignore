@@ -1,4 +1,5 @@
 /library/__pycache__
 /.ipynb_checkpoints
 /library/.ipynb_checkpoints
-/logs/fit
+/create/logs/fit
+/library/BodyEmotion4Lib/__pycache__
