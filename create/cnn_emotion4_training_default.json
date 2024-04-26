@@ -1,0 +1,11 @@
+{
+    "dataset_train_base_dir" : "/media/fernando/Expansion/DATASET/TESE/PATIENT-RECOGNITION/PATIENT-IMAGES/perwi/dataset/train/",
+    "dataset_train_labels_file" : "labels-emotion4-v1.csv",
+    "dataset_test_base_dir" : "/media/fernando/Expansion/DATASET/TESE/PATIENT-RECOGNITION/PATIENT-IMAGES/perwi/dataset/test/",
+    "dataset_test_labels_file" : "labels-emotion4-v1.csv",
+    "dataset_name" : "perwi",
+    "model_type" : "mobilenet_v3",
+    "batch_size" : 32,
+    "epochs" : 50,
+    "output_base_dir" : "/media/fernando/Expansion/OUTPUTS/DOCTORADO2/cnn_emotion4"
+}
