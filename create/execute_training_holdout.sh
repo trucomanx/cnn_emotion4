@@ -25,7 +25,7 @@ image_ext=".eps";
 
 OutDir='/media/fernando/Expansion/OUTPUTS/DOCTORADO2/cnn_emotion4_1'
 
-DName='perwi' 
+DName='perwi'
 #DName='ber2024-body'
 
 
