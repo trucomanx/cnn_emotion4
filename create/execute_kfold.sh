@@ -24,17 +24,25 @@ image_ext=".eps";
 
 OutDir='/media/fernando/B0EA304AEA300EDA/Dados/Fernando/OUTPUTS/DOCTORADO2/cnn_emotion4_1'
 
-#InTrD='/media/fernando/B0EA304AEA300EDA/Dados/Fernando/DATASET/TESE/PATIENT-RECOGNITION/PATIENT-IMAGES/perwi/dataset/train'
-#InTrF='labels-emotion4-v1.csv'
-#DName='perwi'
-InTrD='/media/fernando/B0EA304AEA300EDA/Dados/Fernando/DATASET/TESE/BER/BER2024/BER2024-BODY'
-InTrF='train.csv'
+#DName='perwi' 
 DName='ber2024-body'
+
+
+if [ "$DName" = "perwi" ]; then
+    InTrD='/media/fernando/B0EA304AEA300EDA/Dados/Fernando/DATASET/TESE/PATIENT-RECOGNITION/PATIENT-IMAGES/perwi/dataset/train'
+    InTrF='labels-emotion4-v1.csv'
+fi
+
+if [ "$DName" = "ber2024-body" ]; then
+    InTrD='/media/fernando/B0EA304AEA300EDA/Dados/Fernando/DATASET/TESE/BER/BER2024/BER2024-BODY'
+    InTrF='train.csv'
+fi
+
 ################################################################################
 
 ipynb-py-convert kfold_validation.ipynb kfold_validation.py
 
-python3 kfold_validation.py --model 'efficientnet_b3'     --epochs 75 --batch-size  32 --dataset-dir $InTrD --dataset-file $InTrF --dataset-name $DName --output-dir $OutDir
+#python3 kfold_validation.py --model 'efficientnet_b3'     --epochs 75 --batch-size  32 --dataset-dir $InTrD --dataset-file $InTrF --dataset-name $DName --output-dir $OutDir
 python3 kfold_validation.py --model 'inception_resnet_v2' --epochs 75 --batch-size  64 --dataset-dir $InTrD --dataset-file $InTrF --dataset-name $DName --output-dir $OutDir
 python3 kfold_validation.py --model 'inception_v3'        --epochs 75 --batch-size  64 --dataset-dir $InTrD --dataset-file $InTrF --dataset-name $DName --output-dir $OutDir
 python3 kfold_validation.py --model 'mobilenet_v3'        --epochs 75 --batch-size 128 --dataset-dir $InTrD --dataset-file $InTrF --dataset-name $DName --output-dir $OutDir
