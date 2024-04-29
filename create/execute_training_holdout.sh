@@ -25,8 +25,8 @@ image_ext=".eps";
 
 OutDir='/media/fernando/Expansion/OUTPUTS/DOCTORADO2/cnn_emotion4_1'
 
-DName='perwi'
-#DName='ber2024-body'
+DName='perwi'  
+#DName='ber2024-body'  
 
 
 if [ "$DName" = "perwi" ]; then
