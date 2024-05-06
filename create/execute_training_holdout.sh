@@ -45,6 +45,11 @@ fi
 
 ################################################################################
 
+cp 'main.py' $OutDir/'main.py'
+echo "$PyCommand" | cat - 'main.py' > temp && mv temp $OutDir/$DName/training_validation_holdout/'main.py'
+
+################################################################################
+
 ipynb-py-convert training_holdout.ipynb training_holdout.py
 
 python3 training_holdout.py --model 'efficientnet_b3'     --epochs 100 --batch-size  32 --dataset-train-dir $InTrD --dataset-train-file $InTrF --dataset-test-dir $InTsD --dataset-test-file $InTsF --dataset-name $DName --output-dir $OutDir
@@ -52,9 +57,6 @@ python3 training_holdout.py --model 'inception_resnet_v2' --epochs 100 --batch-s
 python3 training_holdout.py --model 'inception_v3'        --epochs 100 --batch-size  64 --dataset-train-dir $InTrD --dataset-train-file $InTrF --dataset-test-dir $InTsD --dataset-test-file $InTsF --dataset-name $DName --output-dir $OutDir
 python3 training_holdout.py --model 'mobilenet_v3'        --epochs 100 --batch-size  64 --dataset-train-dir $InTrD --dataset-train-file $InTrF --dataset-test-dir $InTsD --dataset-test-file $InTsF --dataset-name $DName --output-dir $OutDir
 python3 training_holdout.py --model 'resnet_v2_50'        --epochs 100 --batch-size  64 --dataset-train-dir $InTrD --dataset-train-file $InTrF --dataset-test-dir $InTsD --dataset-test-file $InTsF --dataset-name $DName --output-dir $OutDir
-
-cp 'main.py' $OutDir/'main.py'
-echo "$PyCommand" | cat - 'main.py' > temp && mv temp $OutDir/$DName/training_validation_holdout/'main.py'
 
 rm -f training_holdout.py
 
