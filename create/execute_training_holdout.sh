@@ -23,10 +23,10 @@ sep=",";
 image_ext=".eps";
 '
 
-OutDir='/media/fernando/Expansion/OUTPUTS/DOCTORADO2/cnn_emotion4_1'
+OutDir='/media/fernando/B0EA304AEA300EDA/Dados/Fernando/OUTPUTS/DOCTORADO2/cnn_emotion4_1'
 
-DName='perwi'  
-#DName='ber2024-body'  
+#DName='perwi'  
+DName='ber2024-body'  
 
 
 if [ "$DName" = "perwi" ]; then
@@ -45,7 +45,7 @@ fi
 
 ################################################################################
 
-cp 'main.py' $OutDir/'main.py'
+mkdir -p $OutDir/$DName/training_validation_holdout
 echo "$PyCommand" | cat - 'main.py' > temp && mv temp $OutDir/$DName/training_validation_holdout/'main.py'
 
 ################################################################################

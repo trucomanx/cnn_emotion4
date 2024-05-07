@@ -51,7 +51,7 @@ import matplotlib
 
 for info in info_list:
     plt.figure(figsize=(15,6))
-    matplotlib.rcParams.update({'font.size': 20})
+    matplotlib.rcParams.update({'font.size': 18})
 
     plt.bar(model_list, testing[info])
 
@@ -69,7 +69,7 @@ for info in info_list:
 if 'erro_bar' in locals():
     for item in erro_bar:
         plt.figure(figsize=(15,6))
-        matplotlib.rcParams.update({'font.size': 20})
+        matplotlib.rcParams.update({'font.size': 18})
 
         plt.bar(model_list, testing[item[0]], yerr=testing[item[1]], capsize=24) 
         

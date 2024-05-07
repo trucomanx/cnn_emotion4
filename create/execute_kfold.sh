@@ -42,7 +42,7 @@ fi
 
 ################################################################################
 
-cp 'main.py' $OutDir/'main.py'
+mkdir -p $OutDir/$DName/cross-validation
 echo "$PyCommand" | cat - 'main.py' > temp && mv temp $OutDir/$DName/cross-validation/'main.py'
 
 ################################################################################
