@@ -64,18 +64,29 @@ def create_model(model_type='mobilenet_v3',load_weights=True,file_of_weight=''):
         path_of_model=os.path.join(directorio_actual,'models','model_'+model_type+'.h5');
         
         if os.path.exists(path_of_model):
-            modelo.load_weights(path_of_model);
-            print("Loaded the weights in:",path_of_model);
+            print("Loading the weights in:",path_of_model);
+            try:
+                modelo.load_weights(path_of_model);
+                print("Loaded the weights in:",path_of_model);
+                
+            except Exception:
+                print("Error loading the weights in:",path_of_model);
+                exit();
         else:
-            print("Error loading the weights file:",path_of_model);
+            print("Error loading, file no found:",path_of_model);
     
     if len(file_of_weight)!=0:
+        print("Loading the weights in:",file_of_weight);
         if os.path.exists(file_of_weight):
             #
-            obj=modelo.load_weights(file_of_weight);
-            print("Loaded the weights in:",file_of_weight);
+            try:
+                obj=modelo.load_weights(file_of_weight);
+                print("Loaded the weights in:",file_of_weight);
+            except Exception:
+                print("Error loading the weights in:",file_of_weight);
+                exit();
         else:
-            print("Error loading the weights file:",file_of_weight);
+            print("Error loading, file no found:",file_of_weight);
     
     return modelo, target_size
 
