@@ -7,5 +7,6 @@
     "model_type" : "mobilenet_v3",
     "batch_size" : 32,
     "epochs" : 50,
+    "fine_tuning" : false,
     "output_base_dir" : "/media/fernando/Expansion/OUTPUTS/DOCTORADO2/cnn_emotion4"
 }
