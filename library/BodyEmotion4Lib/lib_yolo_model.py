@@ -1,13 +1,13 @@
 import os
 import sys
-import numpy as np
+from ultralytics import YOLO
 
 def create_model(model_type='yolov8n-cls',load_weights=True,file_of_weight=''):
     
     model_list_yolo = ['yolov8n-cls','yolov8s-cls','yolov8m-cls'];
     
     if   model_type in model_list_yolo:
-        model = YOLO(model_type+'.yaml');
+        model = YOLO(model_type+'.yaml').load(model_type+'.pt');
         target_size=(224,224);
     else:
         raise TypeError("Unknown parameter model_type");

@@ -1,0 +1,8 @@
+{
+    "dataset_dir" : "/media/fernando/B0EA304AEA300EDA/Dados/Fernando/DATASET/YOLO-COPY/TESE/BER/BER2024/BER2024-BODY/",
+    "dataset_name" : "ber2024-body",
+    "model_type" : "mobilenet_v3",
+    "batch_size" : 8,
+    "epochs" : 200,
+    "output_base_dir" : "/media/fernando/B0EA304AEA300EDA/Dados/Fernando/OUTPUTS/DOCTORADO2/cnn_emotion4"
+}
