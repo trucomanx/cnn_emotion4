@@ -45,18 +45,18 @@ fi
 
 ################################################################################
 
-mkdir -p $OutDir/$DName/training_validation_holdout
-echo "$PyCommand" | cat - 'main.py' > temp && mv temp $OutDir/$DName/training_validation_holdout/'main.py'
+mkdir -p $OutDir/$DName/training_validation_holdout_fine_tuning
+echo "$PyCommand" | cat - 'main.py' > temp && mv temp $OutDir/$DName/training_validation_holdout_fine_tuning/'main.py'
 
 ################################################################################
 
 ipynb-py-convert training_holdout.ipynb training_holdout.py
 
-#python3 training_holdout.py --model 'efficientnet_b3'     --fine-tuning true --epochs 100 --batch-size  32 --dataset-train-dir $InTrD --dataset-train-file $InTrF --dataset-test-dir $InTsD --dataset-test-file $InTsF --dataset-name $DName --output-dir $OutDir
-#python3 training_holdout.py --model 'inception_resnet_v2' --fine-tuning true --epochs 100 --batch-size  64 --dataset-train-dir $InTrD --dataset-train-file $InTrF --dataset-test-dir $InTsD --dataset-test-file $InTsF --dataset-name $DName --output-dir $OutDir
-#python3 training_holdout.py --model 'inception_v3'        --fine-tuning true --epochs 100 --batch-size  64 --dataset-train-dir $InTrD --dataset-train-file $InTrF --dataset-test-dir $InTsD --dataset-test-file $InTsF --dataset-name $DName --output-dir $OutDir
-python3 training_holdout.py --model 'mobilenet_v3'        --fine-tuning true --epochs 100 --batch-size  64 --dataset-train-dir $InTrD --dataset-train-file $InTrF --dataset-test-dir $InTsD --dataset-test-file $InTsF --dataset-name $DName --output-dir $OutDir
-#python3 training_holdout.py --model 'resnet_v2_50'        --fine-tuning true --epochs 100 --batch-size  64 --dataset-train-dir $InTrD --dataset-train-file $InTrF --dataset-test-dir $InTsD --dataset-test-file $InTsF --dataset-name $DName --output-dir $OutDir
+python3 training_holdout.py --model 'efficientnet_b3'     --fine-tuning true --epochs 100 --batch-size  32 --dataset-train-dir $InTrD --dataset-train-file $InTrF --dataset-test-dir $InTsD --dataset-test-file $InTsF --dataset-name $DName --output-dir $OutDir
+python3 training_holdout.py --model 'inception_resnet_v2' --fine-tuning true --epochs 100 --batch-size  64 --dataset-train-dir $InTrD --dataset-train-file $InTrF --dataset-test-dir $InTsD --dataset-test-file $InTsF --dataset-name $DName --output-dir $OutDir
+python3 training_holdout.py --model 'inception_v3'        --fine-tuning true --epochs 100 --batch-size  64 --dataset-train-dir $InTrD --dataset-train-file $InTrF --dataset-test-dir $InTsD --dataset-test-file $InTsF --dataset-name $DName --output-dir $OutDir
+#python3 training_holdout.py --model 'mobilenet_v3'        --fine-tuning true --epochs 100 --batch-size  64 --dataset-train-dir $InTrD --dataset-train-file $InTrF --dataset-test-dir $InTsD --dataset-test-file $InTsF --dataset-name $DName --output-dir $OutDir
+python3 training_holdout.py --model 'resnet_v2_50'        --fine-tuning true --epochs 100 --batch-size  64 --dataset-train-dir $InTrD --dataset-train-file $InTrF --dataset-test-dir $InTsD --dataset-test-file $InTsF --dataset-name $DName --output-dir $OutDir
 
 rm -f training_holdout.py
 

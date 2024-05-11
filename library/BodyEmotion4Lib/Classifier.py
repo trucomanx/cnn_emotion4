@@ -18,7 +18,7 @@ class Emotion4Classifier:
         model_type: Architecture of model.
         target_size: Input size of model. The input image will be reshape to (target_size,target_size,3).
     """
-    def __init__(self,model_type='efficientnet_b3'):
+    def __init__(self,model_type='efficientnet_b3',file_of_weight=''):
         """Inicializer of class Emotion4Classifier.
         
         Args:
@@ -27,7 +27,10 @@ class Emotion4Classifier:
         """
         self.model_type=model_type;
         
-        self.modelo, self.target_size=mpp.create_model(model_type=self.model_type,load_weights=True,file_of_weight='');
+        if len(file_of_weight)>0:
+            self.modelo, self.target_size=mpp.create_model(model_type=self.model_type,load_weights=False,file_of_weight=file_of_weight);
+        else:
+            self.modelo, self.target_size=mpp.create_model(model_type=self.model_type,load_weights=True,file_of_weight='');
     
     def from_img_filepath(self,imgfilepath):
         """Classify a image from the image filepath.
