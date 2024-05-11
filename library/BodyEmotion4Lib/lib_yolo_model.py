@@ -3,15 +3,11 @@ import sys
 import numpy as np
 
 def create_model(model_type='yolov8n-cls',load_weights=True,file_of_weight=''):
-
-    if   model_type=='yolov8n-cls':
-        model = YOLO('yolov8n-cls.yaml');
-        target_size=(224,224);
-    elif model_type=='yolov8s-cls':
-        model = YOLO('yolov8s-cls.yaml');
-        target_size=(224,224);
-    elif model_type=='yolov8m-cls':
-        model = YOLO('yolov8m-cls.yaml');
+    
+    model_list_yolo = ['yolov8n-cls','yolov8s-cls','yolov8m-cls'];
+    
+    if   model_type in model_list_yolo:
+        model = YOLO(model_type+'.yaml');
         target_size=(224,224);
     else:
         raise TypeError("Unknown parameter model_type");
@@ -31,7 +27,7 @@ def create_model(model_type='yolov8n-cls',load_weights=True,file_of_weight=''):
         if os.path.exists(path_of_model):
             print("Loading the weights in:",path_of_model);
             try:
-                model.load(path_of_model);
+                model=model.load(path_of_model);
                 print("Loaded the weights in:",path_of_model);
             except Exception:
                 print("Error loading the weights in:",path_of_model);
@@ -44,7 +40,7 @@ def create_model(model_type='yolov8n-cls',load_weights=True,file_of_weight=''):
         if os.path.exists(file_of_weight):
             #
             try:
-                obj=model.load(file_of_weight);
+                model=model.load(file_of_weight);
                 print("Loaded the weights in:",file_of_weight);
             except Exception:
                 print("Error loading the weights in:",file_of_weight);
