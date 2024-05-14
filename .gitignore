@@ -3,3 +3,6 @@
 /library/.ipynb_checkpoints
 /create/logs/fit
 /library/BodyEmotion4Lib/__pycache__
+/create/runs
+/create/.ipynb_checkpoints
+/create/yolov8*.pt
