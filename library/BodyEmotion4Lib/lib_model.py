@@ -246,6 +246,9 @@ def save_model_stat_kfold(VALIDATION_ACCURACY,VALIDATION_LOSS, fpath):
     return np.mean(VALIDATION_ACCURACY);
 
 
+def get_model_parameters(model):
+    return model.count_params();
+
 from tensorflow.python.keras.utils.layer_utils import count_params
 def save_model_parameters(model, fpath):
     '''

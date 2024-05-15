@@ -72,3 +72,22 @@ def evaluate_model_from_pil(model, image):
 
     return res;
 
+def get_model_parameters(model):
+    return model.info()[1];
+    
+def save_model_parameters(model, fpath):
+    '''
+    Salva en un archivo la estadistica de la cantidoda de parametros de un modelo
+    
+    :param model: Modelos a analizar
+    :type model: str
+    :param fpath: Archivo donde se salvaran los datos.
+    :type fpath: str
+    '''
+    trainable_count = model.info()[1];
+    
+    fid = open(fpath, 'w')
+    print('parameters_total={}'.format(trainable_count),';', file = fid);
+    print('parameters_trainable={}'.format(trainable_count),';', file = fid);
+    fid.close()
+    
