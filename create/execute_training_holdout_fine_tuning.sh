@@ -47,6 +47,7 @@ mkdir -p $OutDir/$DName/training_validation_holdout_fine_tuning
 echo "$PyCommand" | cat - 'main.py' > temp && mv temp $OutDir/$DName/training_validation_holdout_fine_tuning/'main.py'
 
 ################################################################################
+export TF_USE_LEGACY_KERAS=1 
 
 ipynb-py-convert training_holdout.ipynb training_holdout.py
 

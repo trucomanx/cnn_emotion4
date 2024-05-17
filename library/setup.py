@@ -32,7 +32,8 @@ setup(
        "opencv-python", 
        "matplotlib",
        "numpy",
-       "nvidia-cudnn-cu11"
+       "nvidia-cudnn-cu11",
+       "tf-keras"
     ],
 )
 
