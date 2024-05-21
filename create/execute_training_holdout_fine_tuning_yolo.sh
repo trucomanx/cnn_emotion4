@@ -16,7 +16,8 @@ model_list=["efficientnet_b3",
 
 info_list=[ "train_categorical_accuracy",
             "val_categorical_accuracy",
-            "test_categorical_accuracy"
+            "test_categorical_accuracy",
+            "number_of_parameters"
             ];
 
 sep=",";
