@@ -5,5 +5,6 @@
     "model_type" : "efficientnet_b3",
     "model_dir" : "/media/fernando/B0EA304AEA300EDA/Dados/Fernando/OUTPUTS/DOCTORADO2/cnn_emotion4/perwi/training_validation_holdout/efficientnet_b3",
     "times" : 10,
-    "output_base_dir" : "/media/fernando/B0EA304AEA300EDA/Dados/Fernando/OUTPUTS/DOCTORADO2/cnn_emotion4_1"
+    "output_base_dir" : "/media/fernando/B0EA304AEA300EDA/Dados/Fernando/OUTPUTS/DOCTORADO2/cnn_emotion4_1",
+    "is_yolo": false
 }
