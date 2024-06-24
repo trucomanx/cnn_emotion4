@@ -77,5 +77,5 @@ if 'erro_bar' in locals():
         plt.ylim(np.min(np.array(testing[item[0]])-np.array(testing[item[1]]))/1.1, np.max(np.array(testing[item[0]])+np.array(testing[item[1]]))*1.1) 
         plt.grid(True) 
 
-        plt.savefig(base_name+'_error_'+info+image_ext);
+        plt.savefig(base_name+'_error_'+item[0]+image_ext);
             
