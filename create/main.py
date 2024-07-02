@@ -45,11 +45,32 @@ if 'sort_by' in locals():
         else:
             return 0
 
-    # Função de chave usando cmp_to_key
-    key_func = cmp_to_key(eh_maior);
+    def eh_mean_maior(a, b):
+        mean_a = np.mean(sample[a])
+        
+        mean_b = np.mean(sample[b])
+        
+        if   mean_a > mean_b:
+            return 1;
+        elif mean_a < mean_b:
+            return -1
+        else:
+            return 0
 
+    def fn_maior(a,b):
+        if sample[a]>sample[b]:
+            return 1
+        elif sample[a]<sample[b]:
+            return -1
+        else:
+            return 0
+    
     # Ordenando a lista
-    model_list = sorted(model_list, key=key_func, reverse=True)
+    if isinstance(sample[model_list[0]], list):
+        model_list = sorted(model_list, key=cmp_to_key(eh_mean_maior), reverse=True)
+        model_list = sorted(model_list, key=cmp_to_key(eh_maior), reverse=True)
+    else:
+        model_list = sorted(model_list, key=cmp_to_key(fn_maior), reverse=True)
 
 # creating testing dict
 testing=dict();
