@@ -96,6 +96,6 @@ class Emotion4Classifier:
         Returns:
             list: The labels of categories resturned by the methods from_img_pil() and from_img_filepath().
         """
-        return ['negative','neutro','pain','positive'];
+        return ['negative','neutral','pain','positive'];
 
 

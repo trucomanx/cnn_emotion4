@@ -24,7 +24,7 @@ setup(
     package_data = {
         # If any package contains *.txt or *.rst files, include them:
         #'': ['*.py','*.h5'],
-        'BodyEmotion4Lib': ['*.py','models/*.h5']
+        'BodyEmotion4Lib': ['*.py','models/*.h5','models/*.pt']
     },
     install_requires=[ #"Django >= 1.1.1",
        "tensorflow",
