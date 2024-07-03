@@ -9,10 +9,10 @@ os.environ['TF_USE_LEGACY_KERAS']='1'
 
 
 ## Model of network
-model_type = 'yolov8m-cls'
+#model_type = 'yolov8m-cls'
 #model_type = 'yolov8s-cls'
 #model_type = 'yolov8n-cls'
-#model_type = 'efficientnet_b3'
+model_type = 'efficientnet_b3'
 #model_type = 'mobilenet_v3';
 #model_type = 'inception_v3';
 #model_type = 'inception_resnet_v2';
