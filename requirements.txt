@@ -8,3 +8,4 @@ opencv-python-headless
 tensorflow
 tensorflow_hub
 tf-keras
+ultralytics
