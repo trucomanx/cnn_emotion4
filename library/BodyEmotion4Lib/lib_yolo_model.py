@@ -57,7 +57,7 @@ def evaluate_model_from_file(model, imgfilepath):
     '''
     
     # https://docs.ultralytics.com/modes/predict/#__tabbed_2_4
-    res=model(imgfilepath).probs.top1;
+    res=model(imgfilepath)[0].probs.top1;
     
     return res;
 
@@ -68,7 +68,7 @@ def evaluate_model_from_pil(model, image):
     '''
     
     # https://docs.ultralytics.com/modes/predict/#__tabbed_2_4
-    res=model(image).probs.top1;
+    res=model(image)[0].probs.top1;
 
     return res;
 

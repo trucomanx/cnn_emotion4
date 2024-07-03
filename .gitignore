@@ -8,3 +8,4 @@
 /create/yolov8*.pt
 /library/BodyEmotion4Lib/models/model_*.h5
 /library/BodyEmotion4Lib/models/model_*.pt
+/test/yolov8m-cls.pt

@@ -9,7 +9,10 @@ os.environ['TF_USE_LEGACY_KERAS']='1'
 
 
 ## Model of network
-model_type = 'efficientnet_b3'
+model_type = 'yolov8m-cls'
+#model_type = 'yolov8s-cls'
+#model_type = 'yolov8n-cls'
+#model_type = 'efficientnet_b3'
 #model_type = 'mobilenet_v3';
 #model_type = 'inception_v3';
 #model_type = 'inception_resnet_v2';
@@ -75,7 +78,7 @@ def my_func(Clf,predictor,frame):
     return frame;
 
 
-Clf=Emotion4Classifier(model_type=model_type,file_of_weight='/media/fernando/Expansion/OUTPUTS/DOCTORADO2/cnn_emotion4/ber2024-body/training_validation_holdout_fine_tuning/efficientnet_b3/model_efficientnet_b3.h5');
+Clf=Emotion4Classifier(model_type=model_type,file_of_weight='');
 
 predictor = openpifpaf.Predictor(checkpoint='shufflenetv2k16')
 #predictor = openpifpaf.Predictor(checkpoint='resnet50')

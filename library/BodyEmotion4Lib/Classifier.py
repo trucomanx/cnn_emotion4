@@ -32,16 +32,16 @@ class Emotion4Classifier:
         """
         self.model_type=model_type;
         
-        model_list_hub  = ['efficientnet_b3', 'inception_resnet_v2', 'inception_v3', 'mobilenet_v3', 'resnet_v2_50'];
-        model_list_yolo = ['yolov8n-cls','yolov8s-cls','yolov8m-cls'];
+        self.model_list_hub  = ['efficientnet_b3', 'inception_resnet_v2', 'inception_v3', 'mobilenet_v3', 'resnet_v2_50'];
+        self.model_list_yolo = ['yolov8n-cls','yolov8s-cls','yolov8m-cls'];
         
         if len(file_of_weight)>0:
-            if   self.model_type in model_list_hub:
+            if   self.model_type in self.model_list_hub:
                 self.model, self.target_size = mpp.create_model(model_type=self.model_type,
                                                                 load_weights=False,
                                                                 file_of_weight=file_of_weight);
             
-            elif self.model_type in model_list_yolo:
+            elif self.model_type in self.model_list_yolo:
                 self.model, self.target_size = myp.create_model(model_type=self.model_type,
                                                                 load_weights=False,
                                                                 file_of_weight=file_of_weight);
@@ -51,12 +51,12 @@ class Emotion4Classifier:
                 exit();
         
         else:
-            if   self.model_type in model_list_hub:
+            if   self.model_type in self.model_list_hub:
                 self.model, self.target_size=mpp.create_model(  model_type=self.model_type,
                                                                 load_weights=True,
                                                                 file_of_weight='');
                 
-            elif self.model_type in model_list_yolo:
+            elif self.model_type in self.model_list_yolo:
                 self.model, self.target_size=myp.create_model(  model_type=self.model_type,
                                                                 load_weights=True,
                                                                 file_of_weight='');
@@ -75,8 +75,12 @@ class Emotion4Classifier:
         Returns:
             int: The class of image.
         """
-        return mpp.evaluate_model_from_file(self.model,imgfilepath, target_size=self.target_size);
-
+        if   self.model_type in self.model_list_hub:
+            return mpp.evaluate_model_from_file(self.model,imgfilepath, target_size=self.target_size);
+        elif self.model_type in self.model_list_yolo:
+            return myp.evaluate_model_from_file(self.model,imgfilepath);
+        else:
+            return 0;
 
     def from_img_pil(self,img_pil):
         """Classify a image from a PIL object.
@@ -87,8 +91,12 @@ class Emotion4Classifier:
         Returns:
             int: The class of image.
         """
-        return mpp.evaluate_model_from_pil(self.model,img_pil, target_size=self.target_size);
-
+        if   self.model_type in self.model_list_hub:
+            return mpp.evaluate_model_from_pil(self.model,img_pil, target_size=self.target_size);
+        elif self.model_type in self.model_list_yolo:
+            return myp.evaluate_model_from_pil(self.model,img_pil);
+        else:
+            return 0;
 
     def target_labels(self):
         """Returns the categories of classifier.
