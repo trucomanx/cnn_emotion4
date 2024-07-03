@@ -6,19 +6,25 @@ def create_model(model_type='yolov8n-cls',load_weights=True,file_of_weight=''):
     
     model_list_yolo = ['yolov8n-cls','yolov8s-cls','yolov8m-cls'];
     
-    if   model_type in model_list_yolo:
-        model = YOLO(model_type+'.yaml').load(model_type+'.pt');
-        target_size=(224,224);
-    else:
-        raise TypeError("Unknown parameter model_type");
+    def loading_default(model_type,model_list_yolo):
+        if   model_type in model_list_yolo:
+            model = YOLO(model_type+'.yaml').load(model_type+'.pt');
+            target_size=(224,224);
+        else:
+            raise TypeError("Unknown parameter model_type");
+            
+        print("Loading architecture",model_type);
         
-    print("Loading architecture",model_type);
+        print('');
+        print('        url:',model_type+'.yaml');
+        print('target_size:',target_size);
+        print('');
+        
+        return model,target_size;
     
-    print('');
-    print('        url:',model_type+'.yaml');
-    print('target_size:',target_size);
-    print('');
-        
+    model=None;
+    target_size=None;
+    
     if load_weights==True:
         path_actual = os.path.realpath(__file__);
         directorio_actual = os.path.dirname(path_actual);
@@ -27,26 +33,34 @@ def create_model(model_type='yolov8n-cls',load_weights=True,file_of_weight=''):
         if os.path.exists(path_of_model):
             print("Loading the weights in:",path_of_model);
             try:
-                model=model.load(path_of_model);
+                model=YOLO(path_of_model);
+                target_size=(224,224);
                 print("Loaded the weights in:",path_of_model);
             except Exception:
                 print("Error loading the weights in:",path_of_model);
                 exit();
         else:
             print("Error loading, file no found:",path_of_model);
+            exit();
+
     
     if len(file_of_weight)!=0:
         print("Loading the weights in:",file_of_weight);
         if os.path.exists(file_of_weight):
             #
             try:
-                model=model.load(file_of_weight);
+                model=YOLO(file_of_weight);
+                target_size=(224,224);
                 print("Loaded the weights in:",file_of_weight);
             except Exception:
                 print("Error loading the weights in:",file_of_weight);
                 exit();
         else:
             print("Error loading, file no found:",file_of_weight);
+            exit();
+    
+    if model==None or target_size==None:
+        model, target_size=loading_default(model_type,model_list_yolo);
     
     return model, target_size;
 
