@@ -123,8 +123,9 @@ for info in info_list:
     plt.title(info)
     plt.ylim(np.min(testing[info])/1.1, np.max(testing[info])*1.1) 
     plt.grid(True) 
+    plt.tight_layout()
 
-    plt.savefig(base_name+'_'+info+image_ext);
+    plt.savefig(base_name+'_'+info+image_ext,bbox_inches='tight');
 
     #plt.show()
 
@@ -138,8 +139,9 @@ if 'erro_bar' in locals():
         plt.title(item[0]+' , '+item[1])
         plt.ylim(np.min(np.array(testing[item[0]])-np.array(testing[item[1]]))/1.1, np.max(np.array(testing[item[0]])+np.array(testing[item[1]]))*1.1) 
         plt.grid(True) 
+        plt.tight_layout()
 
-        plt.savefig(base_name+'_error_'+item[0]+image_ext);
+        plt.savefig(base_name+'_error_'+item[0]+image_ext,bbox_inches='tight');
 
 if 'p_matrix' in locals():
     import matplotlib.pyplot as plt
@@ -178,5 +180,6 @@ if 'p_matrix' in locals():
     plt.title('p-values A > B')
     plt.xlabel('B')
     plt.ylabel('A')
-    plt.savefig(base_name+'_p_val_'+p_matrix+image_ext);
+    plt.tight_layout()
+    plt.savefig(base_name+'_p_val_'+p_matrix+image_ext,bbox_inches='tight');
     #plt.show();

@@ -7,5 +7,6 @@
     "batch_size" : 32,
     "epochs" : 50,
     "enable_stratified": true,
+    "full_learning": false,
     "output_base_dir" : "/media/fernando/Expansion/OUTPUTS/DOCTORADO2/cnn_emotion4"
 }
