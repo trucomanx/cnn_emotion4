@@ -22,6 +22,8 @@ image_ext=".eps";
 
 OutDir='/media/fernando/Expansion/OUTPUTS/DOCTORADO2/cnn_emotion4_1'
 
+SubTitle='fine_tuning'
+
 #DName='perwi'  
 DName='ber2024-body'  
 
@@ -47,11 +49,11 @@ export TF_USE_LEGACY_KERAS=1
 
 ipynb-py-convert testing_holdout.ipynb testing_holdout.py
 
-python3 testing_holdout.py --model 'efficientnet_b3'     --model-file $ModD/'efficientnet_b3/model_efficientnet_b3.h5'         --times 1 --batch-size  16 --dataset-dir $InTsD --dataset-file $InTsF --dataset-name $DName --output-dir $OutDir
-python3 testing_holdout.py --model 'inception_resnet_v2' --model-file $ModD/'inception_resnet_v2/model_inception_resnet_v2.h5' --times 1 --batch-size  16 --dataset-dir $InTsD --dataset-file $InTsF --dataset-name $DName --output-dir $OutDir
-python3 testing_holdout.py --model 'inception_v3'        --model-file $ModD/'inception_v3/model_inception_v3.h5'               --times 1 --batch-size  16 --dataset-dir $InTsD --dataset-file $InTsF --dataset-name $DName --output-dir $OutDir
-python3 testing_holdout.py --model 'mobilenet_v3'        --model-file $ModD/'mobilenet_v3/model_mobilenet_v3.h5'               --times 1 --batch-size  16 --dataset-dir $InTsD --dataset-file $InTsF --dataset-name $DName --output-dir $OutDir
-python3 testing_holdout.py --model 'resnet_v2_50'        --model-file $ModD/'resnet_v2_50/model_resnet_v2_50.h5'               --times 1 --batch-size  16 --dataset-dir $InTsD --dataset-file $InTsF --dataset-name $DName --output-dir $OutDir
+python3 testing_holdout.py --model 'efficientnet_b3'     --model-file $ModD/'efficientnet_b3/model_efficientnet_b3.h5'         --times 1 --batch-size  16 --dataset-dir $InTsD --dataset-file $InTsF --dataset-name $DName --output-dir $OutDir --output-subtitle $SubTitle
+python3 testing_holdout.py --model 'inception_resnet_v2' --model-file $ModD/'inception_resnet_v2/model_inception_resnet_v2.h5' --times 1 --batch-size  16 --dataset-dir $InTsD --dataset-file $InTsF --dataset-name $DName --output-dir $OutDir --output-subtitle $SubTitle
+python3 testing_holdout.py --model 'inception_v3'        --model-file $ModD/'inception_v3/model_inception_v3.h5'               --times 1 --batch-size  16 --dataset-dir $InTsD --dataset-file $InTsF --dataset-name $DName --output-dir $OutDir --output-subtitle $SubTitle
+python3 testing_holdout.py --model 'mobilenet_v3'        --model-file $ModD/'mobilenet_v3/model_mobilenet_v3.h5'               --times 1 --batch-size  16 --dataset-dir $InTsD --dataset-file $InTsF --dataset-name $DName --output-dir $OutDir --output-subtitle $SubTitle
+python3 testing_holdout.py --model 'resnet_v2_50'        --model-file $ModD/'resnet_v2_50/model_resnet_v2_50.h5'               --times 1 --batch-size  16 --dataset-dir $InTsD --dataset-file $InTsF --dataset-name $DName --output-dir $OutDir --output-subtitle $SubTitle
 
 rm -f testing_holdout.py
 
