@@ -41,8 +41,14 @@ fi
 
 ################################################################################
 
-mkdir -p $OutDir/$DName/test_holdout
-echo "$PyCommand" | cat - 'main.py' > temp && mv temp $OutDir/$DName/test_holdout/'main.py'
+if [ "$SubTitle" = "" ]; then
+    BaseDir='test_holdout'
+else
+    BaseDir='test_holdout_'$SubTitle
+fi
+
+mkdir -p $OutDir/$DName/$BaseDir
+echo "$PyCommand" | cat - 'main.py' > temp && mv temp $OutDir/$DName/$BaseDir/'main.py'
 
 ################################################################################
 export TF_USE_LEGACY_KERAS=1 
