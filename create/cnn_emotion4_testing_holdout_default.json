@@ -3,7 +3,7 @@
     "dataset_labels_file" : "emotion4.work1b.csv",
     "dataset_name" : "dataset_patient_people",
     "model_type" : "efficientnet_b3",
-    "model_dir" : "library/models",
+    "model_file" : "../library/models/model_efficientnet_b3.h5",
     "batch_size" : 32,
     "times" : 10,
     "output_base_dir" : "/mnt/boveda/DOCTORADO2/cnn_patient_people/test"
