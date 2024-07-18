@@ -84,7 +84,7 @@ df = df.replace('mobilenet_v3', 'MobileNetV3')
 df = df.replace('resnet_v2_50', 'ResNet-V2-50')
 
 # Convertendo o DataFrame para formato LaTeX
-latex_table = df.to_latex(index=False, caption='Número total de parâmetros em cada arquitetura.', label='tab:model_params', column_format='lr')
+latex_table = df.to_latex(index=False, caption='Número total de parâmetros em cada arquitetura.', label='tab:model_params', column_format='lrr')
 
 # Salvando a tabela LaTeX em um arquivo
 with open('output_table.tex', 'w') as f:
