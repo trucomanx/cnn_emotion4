@@ -1,8 +1,3 @@
-
-
-
-
-
 # Packaging
 
 
@@ -12,7 +7,7 @@ Download the source code
     git clone https://github.com/trucomanx/cnn_emotion4
 
 
-Download the models.
+Download the models from cnn_emotion4/ber2024-body/fine_tuning
     
     gdown 1fq7tnCK2TONygPVdlTNkbeOiSkRihq1C
     unzip models.zip -d cnn_emotion4/library/BodyEmotion4Lib/models
