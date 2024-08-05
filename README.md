@@ -14,7 +14,7 @@ Since the code uses an old version of keras, it needs to be placed at the beginn
     
     img_pil = Image.new('RGB', (400,300), 'white');
     
-    res=bec.from_img_pil(img_pil);
+    res=cls.from_img_pil(img_pil);
     
     print(res);
 
