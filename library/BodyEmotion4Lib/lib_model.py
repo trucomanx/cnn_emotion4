@@ -137,6 +137,29 @@ def evaluate_model_from_pil(modelo, image,target_size=(224,224)):
     res=modelo.predict(image.reshape(-1,target_size[0],target_size[1],3),verbose=0);
     
     return np.argmax(res);
+    
+def predict_from_pil(modelo, image,target_size=(224,224)):
+    '''
+    Evalua la red neuronal descrita en `modelo`, la entrada es leida desde una imagen PIL.
+    
+    :param modelo: Modelo de la red neuronal.
+    :type modelo: tensorflow.python.keras.engine.sequential.Sequential
+    :param image: Imagen a testar.
+    :type image: PIL.PngImagePlugin.PngImageFile
+    :return: Retorna la classificación.
+    :rtype: bool
+    '''
+    
+    image=np.array(image)
+    image=cv2.resize(image,target_size);
+    
+    
+    image = np.expand_dims(image, axis=0)
+    image=image/255.0;
+    res=modelo.predict(image.reshape(-1,target_size[0],target_size[1],3),verbose=0);
+    
+    return res[0];
+    
 
 def save_model_history(hist, fpath,show=True, labels=['accuracy','loss']):
     ''''This function saves the history returned by model.fit to a tab-

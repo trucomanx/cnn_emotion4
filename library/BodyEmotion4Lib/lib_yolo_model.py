@@ -85,6 +85,17 @@ def evaluate_model_from_pil(model, image):
     res=model(image)[0].probs.top1;
 
     return res;
+    
+def predict_from_pil(model, image):
+    '''
+    Evalua la red neuronal descrita en `model`, la entrada es leida desde una imagen PIL.
+    
+    '''
+    
+    # https://docs.ultralytics.com/modes/predict/#__tabbed_2_4
+    res=model(image)[0].probs;
+
+    return res;
 
 def get_model_parameters(model):
     return model.info()[1];

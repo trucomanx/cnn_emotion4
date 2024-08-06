@@ -98,6 +98,22 @@ class Emotion4Classifier:
         else:
             return 0;
 
+    def predict_pil(self,img_pil):
+        """Classify a image from a PIL object.
+        
+        Args:
+            img_pil: The PIL object.
+        
+        Returns:
+            int: The class of image.
+        """
+        if   self.model_type in self.model_list_hub:
+            return mpp.predict_from_pil(self.model,img_pil, target_size=self.target_size);
+        elif self.model_type in self.model_list_yolo:
+            return myp.predict_from_pil(self.model,img_pil);
+        else:
+            return 0;
+
     def target_labels(self):
         """Returns the categories of classifier.
         
