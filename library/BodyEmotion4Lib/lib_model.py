@@ -39,14 +39,12 @@ def create_model(model_type='mobilenet_v3',load_weights=True,file_of_weight=''):
         target_size=(299,299);
     else:
         raise TypeError("Unknown parameter model_type");
-    
-    print("Loading architecture",model_type);
-    
-    print('');
+
+    print("")
+    print("Transfer learning architecture",model_type);
     print('        url:',url);
     print('target_size:',target_size);
-    print('');
-    
+        
     multiple_layers = hub.KerasLayer(url,input_shape=(target_size[0],target_size[1],3))
     multiple_layers.trainable =False
 
