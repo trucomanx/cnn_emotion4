@@ -42,6 +42,7 @@ class Emotion4Classifier:
                                                                 file_of_weight=file_of_weight);
             
             elif self.model_type in self.model_list_yolo:
+                # Warning: This code was put here because load torch that has 8.5.0 cudnn version, but tensorflow have 8.9.* version
                 import BodyEmotion4Lib.lib_yolo_model as myp
                 self.model, self.target_size = myp.create_model(model_type=self.model_type,
                                                                 load_weights=False,
@@ -58,6 +59,7 @@ class Emotion4Classifier:
                                                                 file_of_weight='');
                 
             elif self.model_type in self.model_list_yolo:
+                # Warning: This code was put here because load torch that has 8.5.0 cudnn version, but tensorflow have 8.9.* version
                 import BodyEmotion4Lib.lib_yolo_model as myp
                 self.model, self.target_size=myp.create_model(  model_type=self.model_type,
                                                                 load_weights=True,
@@ -80,6 +82,7 @@ class Emotion4Classifier:
         if   self.model_type in self.model_list_hub:
             return mpp.evaluate_model_from_file(self.model,imgfilepath, target_size=self.target_size);
         elif self.model_type in self.model_list_yolo:
+            # Warning: This code was put here because load torch that has 8.5.0 cudnn version, but tensorflow have 8.9.* version
             import BodyEmotion4Lib.lib_yolo_model as myp
             return myp.evaluate_model_from_file(self.model,imgfilepath);
         else:
@@ -97,6 +100,7 @@ class Emotion4Classifier:
         if   self.model_type in self.model_list_hub:
             return mpp.evaluate_model_from_pil(self.model,img_pil, target_size=self.target_size);
         elif self.model_type in self.model_list_yolo:
+            # Warning: This code was put here because load torch that has 8.5.0 cudnn version, but tensorflow have 8.9.* version
             import BodyEmotion4Lib.lib_yolo_model as myp
             return myp.evaluate_model_from_pil(self.model,img_pil);
         else:
@@ -114,6 +118,7 @@ class Emotion4Classifier:
         if   self.model_type in self.model_list_hub:
             return mpp.predict_from_pil(self.model,img_pil, target_size=self.target_size);
         elif self.model_type in self.model_list_yolo:
+            # Warning: This code was put here because load torch that has 8.5.0 cudnn version, but tensorflow have 8.9.* version
             import BodyEmotion4Lib.lib_yolo_model as myp
             return myp.predict_from_pil(self.model,img_pil);
         else:
