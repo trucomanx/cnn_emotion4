@@ -112,16 +112,20 @@ import matplotlib.pyplot as plt
 import matplotlib
 
 for info in info_list:
+    MIN=np.min(testing[info]);
+    MAX=np.max(testing[info]);
+    D=MAX-MIN;
+    
     plt.figure(figsize=(15,6))
     matplotlib.rcParams.update({'font.size': 18})
 
     plt.bar(model_list, testing[info])
 
     for n in range(len(model_list)):
-        plt.text(model_list[n], testing[info][n]+0.005, round(testing[info][n],3),fontsize=16)
+        plt.text(model_list[n], testing[info][n]+D/6, round(testing[info][n],4),fontsize=16, ha='center')
 
     plt.title(info)
-    plt.ylim(np.min(testing[info])/1.1, np.max(testing[info])*1.1) 
+    plt.ylim(MIN-D/3, MAX+D/3) 
     plt.grid(True) 
     plt.tight_layout()
 
@@ -131,13 +135,17 @@ for info in info_list:
 
 if 'erro_bar' in locals():
     for item in erro_bar:
+        MIN=np.min(np.array(testing[item[0]])-np.array(testing[item[1]]));
+        MAX=np.max(np.array(testing[item[0]])+np.array(testing[item[1]]));
+        D=MAX-MIN;
+        
         plt.figure(figsize=(15,6))
         matplotlib.rcParams.update({'font.size': 18})
 
         plt.bar(model_list, testing[item[0]], yerr=testing[item[1]], capsize=24) 
         
         plt.title(item[0]+' , '+item[1])
-        plt.ylim(np.min(np.array(testing[item[0]])-np.array(testing[item[1]]))/1.1, np.max(np.array(testing[item[0]])+np.array(testing[item[1]]))*1.1) 
+        plt.ylim(MIN-D/3, MAX+D/3) 
         plt.grid(True) 
         plt.tight_layout()
 
