@@ -158,6 +158,42 @@ def predict_from_pil(modelo, image,target_size=(224,224)):
     
     return res[0];
     
+def predict_from_pil_list(modelo, pil_list,target_size=(224,224)):
+    '''
+    Evalua la red neuronal descrita en `modelo`, la entrada es leida desde una imagen PIL.
+    
+    :param modelo: Modelo de la red neuronal.
+    :type modelo: tensorflow.python.keras.engine.sequential.Sequential
+    :param pil_list: Lista de Imagens a testar.
+    :type pil_list: List of  PIL.PngImagePlugin.PngImageFile
+    :return: Retorna la classificación.
+    :rtype: bool
+    '''
+    L=len(pil_list);
+    
+    image_array = np.zeros((L, target_size[0], target_size[1], 3), dtype=np.float32);
+
+    for i, img in enumerate(pil_list):
+        img_resized=cv2.resize(np.array(img),target_size);
+        image_array[i] = img_resized / 255.0;
+        
+    res=modelo.predict(image_array,verbose=0);
+    
+    return res;
+
+def evaluate_model_from_pil_list(modelo, pil_list,target_size=(224,224)):
+    '''
+    Evalua la red neuronal descrita en `modelo`, la entrada es leida desde una imagen PIL.
+    
+    :param modelo: Modelo de la red neuronal.
+    :type modelo: tensorflow.python.keras.engine.sequential.Sequential
+    :param target_size: List of Imagen a testar.
+    :type target_size: List of PIL.PngImagePlugin.PngImageFile
+    :return: Retorna la classificación.
+    :rtype: vector
+    '''
+    
+    return np.argmax(predict_from_pil_list(modelo, pil_list,target_size=target_size),axis=1);
 
 def save_model_history(hist, fpath,show=True, labels=['accuracy','loss']):
     ''''This function saves the history returned by model.fit to a tab-
