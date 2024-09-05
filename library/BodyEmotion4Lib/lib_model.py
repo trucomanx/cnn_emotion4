@@ -173,11 +173,18 @@ def predict_from_pil_list(modelo, pil_list,target_size=(224,224)):
     
     image_array = np.zeros((L, target_size[0], target_size[1], 3), dtype=np.float32);
 
+    none_id_list=[];
     for i, img in enumerate(pil_list):
-        img_resized=cv2.resize(np.array(img),target_size);
-        image_array[i] = img_resized / 255.0;
+        if img is None:
+            none_id_list.append(i);
+        else:
+            img_resized=cv2.resize(np.array(img),target_size);
+            image_array[i] = img_resized / 255.0;
         
     res=modelo.predict(image_array,verbose=0);
+    
+    # Zerando as linhas correspondentes aos IDs
+    res[none_id_list, :] = 0.0;
     
     return res;
 
