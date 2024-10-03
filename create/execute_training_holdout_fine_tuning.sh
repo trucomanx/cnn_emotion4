@@ -22,7 +22,7 @@ sep=",";
 image_ext=".eps";
 '
 
-OutDir='/media/fernando/B0EA304AEA300EDA/Dados/Fernando/OUTPUTS/DOCTORADO2/cnn_emotion4_1'
+OutDir='/mnt/8811f502-ae19-4dd8-8371-f1915178f581/Fernando/OUTPUTS/DOCTORADO2/cnn_emotion4_2'
 
 #DName='perwi'  
 DName='ber2024-body'  
@@ -36,9 +36,9 @@ if [ "$DName" = "perwi" ]; then
 fi
 
 if [ "$DName" = "ber2024-body" ]; then
-    InTrD='/media/fernando/B0EA304AEA300EDA/Dados/Fernando/DATASET/TESE/BER/BER2024/BER2024-BODY'
+    InTrD='/mnt/8811f502-ae19-4dd8-8371-f1915178f581/Fernando/DATASET/TESE/BER/BER2024/BER2024-BODY'
     InTrF='train.csv'
-    InTsD='/media/fernando/B0EA304AEA300EDA/Dados/Fernando/DATASET/TESE/BER/BER2024/BER2024-BODY'
+    InTsD='/mnt/8811f502-ae19-4dd8-8371-f1915178f581/Fernando/DATASET/TESE/BER/BER2024/BER2024-BODY'
     InTsF='test.csv'
 fi
 
@@ -52,11 +52,11 @@ export TF_USE_LEGACY_KERAS=1
 
 ipynb-py-convert training_holdout.ipynb training_holdout.py
 
-python3 training_holdout.py --model 'efficientnet_b3'     --seed 0 --fine-tuning true --epochs 100 --batch-size  16 --dataset-train-dir $InTrD --dataset-train-file $InTrF --dataset-test-dir $InTsD --dataset-test-file $InTsF --dataset-name $DName --output-dir $OutDir
-python3 training_holdout.py --model 'inception_resnet_v2' --fine-tuning true --epochs 100 --batch-size  32 --dataset-train-dir $InTrD --dataset-train-file $InTrF --dataset-test-dir $InTsD --dataset-test-file $InTsF --dataset-name $DName --output-dir $OutDir
-python3 training_holdout.py --model 'inception_v3'        --fine-tuning true --epochs 100 --batch-size  32 --dataset-train-dir $InTrD --dataset-train-file $InTrF --dataset-test-dir $InTsD --dataset-test-file $InTsF --dataset-name $DName --output-dir $OutDir
-python3 training_holdout.py --model 'mobilenet_v3'        --fine-tuning true --epochs 100 --batch-size  32 --dataset-train-dir $InTrD --dataset-train-file $InTrF --dataset-test-dir $InTsD --dataset-test-file $InTsF --dataset-name $DName --output-dir $OutDir
-python3 training_holdout.py --model 'resnet_v2_50'        --fine-tuning true --epochs 100 --batch-size  32 --dataset-train-dir $InTrD --dataset-train-file $InTrF --dataset-test-dir $InTsD --dataset-test-file $InTsF --dataset-name $DName --output-dir $OutDir
+python3 training_holdout.py --model 'efficientnet_b3'     --seed 3 --fine-tuning true --epochs 100 --batch-size  16 --dataset-train-dir $InTrD --dataset-train-file $InTrF --dataset-test-dir $InTsD --dataset-test-file $InTsF --dataset-name $DName --output-dir $OutDir
+#python3 training_holdout.py --model 'inception_resnet_v2' --fine-tuning true --epochs 100 --batch-size  32 --dataset-train-dir $InTrD --dataset-train-file $InTrF --dataset-test-dir $InTsD --dataset-test-file $InTsF --dataset-name $DName --output-dir $OutDir
+#python3 training_holdout.py --model 'inception_v3'        --fine-tuning true --epochs 100 --batch-size  32 --dataset-train-dir $InTrD --dataset-train-file $InTrF --dataset-test-dir $InTsD --dataset-test-file $InTsF --dataset-name $DName --output-dir $OutDir
+#python3 training_holdout.py --model 'mobilenet_v3'        --fine-tuning true --epochs 100 --batch-size  32 --dataset-train-dir $InTrD --dataset-train-file $InTrF --dataset-test-dir $InTsD --dataset-test-file $InTsF --dataset-name $DName --output-dir $OutDir
+#python3 training_holdout.py --model 'resnet_v2_50'        --fine-tuning true --epochs 100 --batch-size  32 --dataset-train-dir $InTrD --dataset-train-file $InTrF --dataset-test-dir $InTsD --dataset-test-file $InTsF --dataset-name $DName --output-dir $OutDir
 
 rm -f training_holdout.py
 
