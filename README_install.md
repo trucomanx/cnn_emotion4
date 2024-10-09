@@ -9,8 +9,8 @@ Download the source code
 
 Download the models from cnn_emotion4/ber2024-body/fine_tuning
     
-    gdown 1fq7tnCK2TONygPVdlTNkbeOiSkRihq1C
-    unzip models.zip -d cnn_emotion4/library/BodyEmotion4Lib/models
+    gdown 1o_AFJOMwW4M-621HfkXI_nqU1nLZG8DB
+    unzip models_2.zip -d cnn_emotion4/library/BodyEmotion4Lib/models
     
 
 The next command generates the `dist/BodyEmotion4Lib-VERSION.tar.gz` file.
