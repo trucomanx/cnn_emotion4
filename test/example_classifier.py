@@ -11,7 +11,7 @@ os.environ['TF_GPU_ALLOCATOR'] = 'cuda_malloc_async'
 
 ## Specify which GPUs are available to a program.
 ## The list of GPUs is usually represented by indices starting at 0.
-os.environ['CUDA_VISIBLE_DEVICES'] = '-1' # disable cuda
+#os.environ['CUDA_VISIBLE_DEVICES'] = '-1' # disable cuda
 
 import sys
 sys.path.append('../library') 
