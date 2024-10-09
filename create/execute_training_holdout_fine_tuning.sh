@@ -22,7 +22,7 @@ sep=",";
 image_ext=".eps";
 '
 
-OutDir='/mnt/8811f502-ae19-4dd8-8371-f1915178f581/Fernando/OUTPUTS/DOCTORADO2/cnn_emotion4_2'
+OutDir='/mnt/8811f502-ae19-4dd8-8371-f1915178f581/Fernando/OUTPUTS/DOCTORADO2/cnn_emotion4_seed1'
 
 #DName='perwi'  
 DName='ber2024-body'  
@@ -52,7 +52,7 @@ export TF_USE_LEGACY_KERAS=1
 
 ipynb-py-convert training_holdout.ipynb training_holdout.py
 
-python3 training_holdout.py --model 'efficientnet_b3'     --seed 3 --fine-tuning true --epochs 100 --batch-size  16 --dataset-train-dir $InTrD --dataset-train-file $InTrF --dataset-test-dir $InTsD --dataset-test-file $InTsF --dataset-name $DName --output-dir $OutDir
+python3 training_holdout.py --model 'efficientnet_b3'     --seed 1 --fine-tuning true --epochs 100 --batch-size  16 --dataset-train-dir $InTrD --dataset-train-file $InTrF --dataset-test-dir $InTsD --dataset-test-file $InTsF --dataset-name $DName --output-dir $OutDir
 #python3 training_holdout.py --model 'inception_resnet_v2' --fine-tuning true --epochs 100 --batch-size  32 --dataset-train-dir $InTrD --dataset-train-file $InTrF --dataset-test-dir $InTsD --dataset-test-file $InTsF --dataset-name $DName --output-dir $OutDir
 #python3 training_holdout.py --model 'inception_v3'        --fine-tuning true --epochs 100 --batch-size  32 --dataset-train-dir $InTrD --dataset-train-file $InTrF --dataset-test-dir $InTsD --dataset-test-file $InTsF --dataset-name $DName --output-dir $OutDir
 #python3 training_holdout.py --model 'mobilenet_v3'        --fine-tuning true --epochs 100 --batch-size  32 --dataset-train-dir $InTrD --dataset-train-file $InTrF --dataset-test-dir $InTsD --dataset-test-file $InTsF --dataset-name $DName --output-dir $OutDir
