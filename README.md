@@ -20,7 +20,7 @@ Since the code uses an old version of keras, it needs to be placed at the beginn
 
 # Installation summary
 
-    git clone https://github.com/trucomanx/cnn_emotion4
+    git clone https://github.com/trucomanx/cnn_emotion4.git
     gdown 1TK6OPySP6NZGQyW2h8e_PHPRtDaz3s-X
     unzip models_2_v2.zip -d cnn_emotion4/library/BodyEmotion4Lib/models
     cd cnn_emotion4/library
