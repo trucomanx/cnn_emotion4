@@ -51,11 +51,11 @@ export TF_USE_LEGACY_KERAS=1
 
 ipynb-py-convert kfold_validation.ipynb kfold_validation.py
 
-python3 kfold_validation.py --model 'efficientnet_b3'     --epochs 100 --batch-size 16 --full-learning true --dataset-dir $InTrD --dataset-file $InTrF --dataset-name $DName --output-dir $OutDir
-python3 kfold_validation.py --model 'inception_resnet_v2' --epochs 100 --batch-size 16 --full-learning true --dataset-dir $InTrD --dataset-file $InTrF --dataset-name $DName --output-dir $OutDir
-python3 kfold_validation.py --model 'inception_v3'        --epochs 100 --batch-size 16 --full-learning true --dataset-dir $InTrD --dataset-file $InTrF --dataset-name $DName --output-dir $OutDir
-python3 kfold_validation.py --model 'mobilenet_v3'        --epochs 100 --batch-size 16 --full-learning true --dataset-dir $InTrD --dataset-file $InTrF --dataset-name $DName --output-dir $OutDir
-python3 kfold_validation.py --model 'resnet_v2_50'        --epochs 100 --batch-size 16 --full-learning true --dataset-dir $InTrD --dataset-file $InTrF --dataset-name $DName --output-dir $OutDir
+python3 kfold_validation.py --model 'efficientnet_b3'     --epochs 200 --patience 60 --batch-size 16 --full-learning true --dataset-dir $InTrD --dataset-file $InTrF --dataset-name $DName --output-dir $OutDir
+python3 kfold_validation.py --model 'inception_resnet_v2' --epochs 200 --patience 60 --batch-size 16 --full-learning true --dataset-dir $InTrD --dataset-file $InTrF --dataset-name $DName --output-dir $OutDir
+python3 kfold_validation.py --model 'inception_v3'        --epochs 200 --patience 60 --batch-size 16 --full-learning true --dataset-dir $InTrD --dataset-file $InTrF --dataset-name $DName --output-dir $OutDir
+python3 kfold_validation.py --model 'mobilenet_v3'        --epochs 200 --patience 60 --batch-size 16 --full-learning true --dataset-dir $InTrD --dataset-file $InTrF --dataset-name $DName --output-dir $OutDir
+python3 kfold_validation.py --model 'resnet_v2_50'        --epochs 200 --patience 60 --batch-size 16 --full-learning true --dataset-dir $InTrD --dataset-file $InTrF --dataset-name $DName --output-dir $OutDir
 
 
 rm -f kfold_validation.py
