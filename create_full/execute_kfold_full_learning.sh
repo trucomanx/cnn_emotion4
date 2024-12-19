@@ -28,7 +28,8 @@ sep=",";
 image_ext=".eps";
 '
 
-BaseDir='/mnt/8811f502-ae19-4dd8-8371-f1915178f581/Fernando'
+BaseDir='/mnt/c/FERNANDO'
+#BaseDir='/mnt/8811f502-ae19-4dd8-8371-f1915178f581/Fernando'
 
 OutDir=$BaseDir'/OUTPUTS/DOCTORADO2/cnn_emotion4_full'
 
@@ -37,7 +38,8 @@ DName='full2024-body'
 
 
 if [ "$DName" = "full2024-body" ]; then
-    InTrD=$BaseDir'/DATASET/TESE'
+    InTrD=$BaseDir'/UPLOAD/BODY'
+    #InTrD=$BaseDir'/DATASET/TESE'
     InTrF='train_body.csv'
 fi
 
