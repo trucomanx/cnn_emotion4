@@ -11,3 +11,4 @@
 /test/yolov8m-cls.pt
 /library/BodyEmotion4Lib.egg-info
 /library/dist
+/create_full/kfold_validation.py
