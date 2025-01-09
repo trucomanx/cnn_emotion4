@@ -18,7 +18,7 @@ Since the code uses an old version of keras, it needs to be placed at the beginn
     
     print(res);
 
-# Installation summary
+# Installation summary - Dataset BER2024
 
     git clone https://github.com/trucomanx/cnn_emotion4.git
     gdown 1TK6OPySP6NZGQyW2h8e_PHPRtDaz3s-X
@@ -26,4 +26,8 @@ Since the code uses an old version of keras, it needs to be placed at the beginn
     cd cnn_emotion4/library
     python3 setup.py sdist
     pip3 install dist/BodyEmotion4Lib-*.tar.gz
+
+# Installation summary - Dataset FULL2024
+    git clone https://github.com/trucomanx/cnn_emotion4.git
+    gdown XXXXXXXXXX
     
