@@ -28,6 +28,11 @@ Since the code uses an old version of keras, it needs to be placed at the beginn
     pip3 install dist/BodyEmotion4Lib-*.tar.gz
 
 # Installation summary - Dataset FULL2024
+
     git clone https://github.com/trucomanx/cnn_emotion4.git
-    gdown XXXXXXXXXX
+    gdown 1_b2ppeKedwKNSDtILOTpreVnl7K3XFY5
+    unzip models_body_full.zip -d cnn_emotion4/library/BodyEmotion4Lib/models
+    cd cnn_emotion4/library
+    python3 setup.py sdist
+    pip3 install dist/BodyEmotion4Lib-*.tar.gz
     
