@@ -30,13 +30,13 @@ DName='ber2024-body'
 if [ "$DName" = "perwi" ]; then
     InTsD='/media/fernando/Expansion/DATASET/TESE/PATIENT-RECOGNITION/PATIENT-IMAGES/perwi/dataset/test/'
     InTsF='labels-emotion4-v1.csv'
-    ModD='/media/fernando/Expansion/OUTPUTS/DOCTORADO2/cnn_emotion4/perwi/training_validation_holdout_fine_tuning'
+    ModD='/media/fernando/Expansion/OUTPUTS/DOCTORADO2/BODY/cnn_emotion4/perwi/training_validation_holdout_fine_tuning'
 fi
 
 if [ "$DName" = "ber2024-body" ]; then
     InTsD='/media/fernando/Expansion/DATASET/TESE/BER/BER2024/BER2024-BODY'
     InTsF='test.csv'
-    ModD='/media/fernando/Expansion/OUTPUTS/DOCTORADO2/cnn_emotion4/ber2024-body/training_validation_holdout_fine_tuning'
+    ModD='/media/fernando/Expansion/OUTPUTS/DOCTORADO2/BODY/cnn_emotion4/ber2024-body/training_validation_holdout_fine_tuning'
 fi
 
 ################################################################################
