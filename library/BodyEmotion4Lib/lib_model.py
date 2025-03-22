@@ -329,3 +329,68 @@ def save_model_parameters(model, fpath):
     print('parameters_total={}'.format(model.count_params()),';', file = fid);
     print('parameters_trainable={}'.format(trainable_count),';', file = fid);
     fid.close()
+
+
+if __name__=="__main__":
+    # export TF_USE_LEGACY_KERAS=1; python3 lib_model.py
+    import gdown
+    import zipfile
+    import os
+    
+    pesos = {
+        "ber2024" : "https://drive.google.com/uc?id=1TK6OPySP6NZGQyW2h8e_PHPRtDaz3s-X",
+        "full2024": "https://drive.google.com/uc?id=1_b2ppeKedwKNSDtILOTpreVnl7K3XFY5"
+    }
+    
+    OUTPUT = 'output'
+    
+    os.makedirs(OUTPUT, exist_ok = True)
+    for key,url in pesos.items():
+        print(key,url)
+    
+        output = 'arquivo.zip'
+        weights_dir = 'weights_'+key
+        
+        gdown.download(url, output, quiet=False)
+        
+        with zipfile.ZipFile(output, 'r') as zip_ref:
+            zip_ref.extractall(weights_dir)
+        
+        os.remove(output)
+        
+        os.makedirs(os.path.join(OUTPUT,key), exist_ok = True)
+        
+        name_model = ['mobilenet_v3', 'resnet_v2_50','efficientnet_b3', 'inception_v3', 'inception_resnet_v2']
+        for name in name_model:
+            print("\n")
+            
+            weights_path = os.path.join(weights_dir,'model_'+name+'.h5')
+            
+            model, target_size = create_model(  model_type=name,
+                                                load_weights=False,
+                                                file_of_weight=weights_path)
+
+            # Saving models
+            keras_path = os.path.join(OUTPUT,"complete_"+key,"complete_"+name+".keras")
+            model.save(keras_path, save_format="keras")
+
+            st_path = os.path.join(OUTPUT,"complete_"+key,"complete_"+name)
+            model.save(st_path, save_format="tf")
+
+            # Loading models
+            modelo_keras = tf.keras.models.load_model(keras_path, custom_objects={"KerasLayer": hub.KerasLayer})
+            modelo_keras.load_weights(weights_path)            
+            
+            modelo_tf = tf.keras.models.load_model(st_path)
+            modelo_tf.load_weights(weights_path)
+
+            # print values
+            print(model.layers[0].get_weights()[0][0:3])
+            print(modelo_keras.layers[0].get_weights()[0][0:3])
+            print(modelo_tf.layers[0].get_weights()[0][0:3])
+
+            # Sumary
+            model.summary()
+            modelo_keras.summary()
+            modelo_tf.summary()
+            
