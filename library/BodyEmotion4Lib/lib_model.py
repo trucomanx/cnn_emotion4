@@ -358,7 +358,7 @@ if __name__=="__main__":
         
         os.remove(output)
         
-        os.makedirs(os.path.join(OUTPUT,key), exist_ok = True)
+        os.makedirs(os.path.join(OUTPUT,"complete_"+key), exist_ok = True)
         
         name_model = ['mobilenet_v3', 'resnet_v2_50','efficientnet_b3', 'inception_v3', 'inception_resnet_v2']
         for name in name_model:
