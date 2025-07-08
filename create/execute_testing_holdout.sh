@@ -20,8 +20,8 @@ sep=",";
 image_ext=".eps";
 '
 
-#BaseDir='/media/fernando/Expansion'
-BaseDir='/mnt/8811f502-ae19-4dd8-8371-f1915178f581/Fernando'
+BaseDir='/media/shannon/Expansion'
+#BaseDir='/mnt/8811f502-ae19-4dd8-8371-f1915178f581/Fernando'
 
 OutDir=$BaseDir'/OUTPUTS/DOCTORADO2/cnn_emotion4_1_10times'
 
@@ -36,10 +36,18 @@ if [ "$DName" = "perwi" ]; then
     ModD=$BaseDir'/OUTPUTS/DOCTORADO2/BODY/cnn_emotion4/perwi/training_validation_holdout_fine_tuning'
 fi
 
+## Antes de reordenar por face
+#if [ "$DName" = "ber2024-body" ]; then
+#    InTsD=$BaseDir'/DATASET/TESE/BER/BER2024/BER2024-BODY'
+#    InTsF='test.csv'
+#    ModD=$BaseDir'/OUTPUTS/DOCTORADO2/BODY/cnn_emotion4/ber2024-body/training_validation_holdout_fine_tuning'
+#fi
+
+## Despues de reordenar por face
 if [ "$DName" = "ber2024-body" ]; then
     InTsD=$BaseDir'/DATASET/TESE/BER/BER2024/BER2024-BODY'
-    InTsF='test.csv'
-    ModD=$BaseDir'/OUTPUTS/DOCTORADO2/BODY/cnn_emotion4/ber2024-body/training_validation_holdout_fine_tuning'
+    InTsF='test_refface.csv'
+    ModD=$BaseDir'/OUTPUTS/DOCTORADO2/BODY/cnn_emotion4_v2/ber2024-body/training_validation_holdout_fine_tuning'
 fi
 
 ################################################################################
